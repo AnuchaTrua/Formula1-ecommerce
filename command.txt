@@ -1,0 +1,25 @@
+FRONTEND
+download frontend(react + vite)
+
+npm create vite@latest
+cd client
+npm install
+
+start frontend
+
+npm run dev
+
+
+
+BACKEND
+download backend (nodeJS + express + nodemon)
+npm init -y
+npm install express mongoose cors dotenv
+npm install --save-dev nodemon
+
+db password (MongoDB atlas)
+username:anucha    password:Adminpassword
+
+start backend
+
+npm run dev

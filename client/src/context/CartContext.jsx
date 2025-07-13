@@ -6,7 +6,6 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    // ถ้ามีสินค้าเดิมอยู่แล้ว ให้เพิ่มจำนวน
     const exist = cart.find((item) => item._id === product._id);
     if (exist) {
       setCart(
@@ -23,8 +22,12 @@ export const CartProvider = ({ children }) => {
     setCart(cart.filter((item) => item._id !== productId));
   };
 
+  const clearCart = () => {
+    setCart([]); // ✅ แบบนี้ถูกต้อง
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );

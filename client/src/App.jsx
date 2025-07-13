@@ -13,6 +13,9 @@ import { useCart } from "./context/CartContext";
 import { useAuth } from "./context/AuthContext";
 import { useState, useEffect } from "react";
 import ProductsByTeam from "./pages/ProductsByTeam";
+import AllProducts from "./pages/AllProducts";
+import Profile from "./pages/Profile";
+import AdminOrders from "./pages/AdminOrders";
 
 
 import axios from "axios";
@@ -158,13 +161,34 @@ function App() {
               </Link>
             </>
           ) : (
-            <button
-              onClick={logout}
-              className="px-3 py-1 text-white rounded hover:underline"
-            >
-              Logout
-            </button>
+            <>
+              {/* 🔹 เพิ่มปุ่มโปรไฟล์ */}
+              <Link
+                to="/profile"
+                className="px-3 py-1 text-white rounded hover:underline"
+              >
+                Profile
+              </Link>
+
+              {/* 🔸 เพิ่มปุ่มสำหรับแอดมินดูคำสั่งซื้อ */}
+              {isAdmin && (
+                <Link
+                  to="/admin/orders"
+                  className="px-3 py-1 text-white rounded hover:underline"
+                >
+                  Orders
+                </Link>
+              )}
+
+              <button
+                onClick={logout}
+                className="px-3 py-1 text-white rounded hover:underline"
+              >
+                Logout
+              </button>
+            </>
           )}
+
         </div>
       </header>
 
@@ -181,6 +205,9 @@ function App() {
 
           {/* เพิ่ม Route สำหรับหน้าแสดงสินค้าของทีม */}
           <Route path="/products/team/:teamId" element={<ProductsByTeam />} />
+          <Route path="/products" element={<AllProducts />} />
+          <Route path="/profile" element={<Profile />} />
+          {isAdmin && <Route path="/admin/orders" element={<AdminOrders />} />}
         </Routes>
       </main>
     </Router>

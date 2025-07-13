@@ -22,6 +22,29 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// // Login
+// router.post("/login", async (req, res) => {
+//   const { username, password } = req.body;
+//   try {
+//     const user = await User.findOne({ username });
+//     console.log("🧾 User found:", user);
+//     if (!user) return res.status(404).json({ message: "User not found" });
+
+//     const match = await bcrypt.compare(password, user.password);
+//     if (!match) return res.status(401).json({ message: "Wrong password" });
+
+//     const token = jwt.sign(
+//       { userId: user._id, isAdmin: user.isAdmin },
+//       process.env.JWT_SECRET,
+//       { expiresIn: "1h" }
+//     );
+
+//     res.json({ token, isAdmin: user.isAdmin });
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// });
+
 // Login
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -39,7 +62,12 @@ router.post("/login", async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.json({ token, isAdmin: user.isAdmin });
+    // ส่ง userId กลับไปด้วย (แปลง ObjectId เป็น string)
+    res.json({ 
+      token, 
+      isAdmin: user.isAdmin, 
+      userId: user._id.toString() 
+    });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

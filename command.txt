@@ -23,3 +23,7 @@ username:anucha    password:Adminpassword
 start backend
 
 npm run dev
+
+
+DLC
+npm install swiper  (เลื่อน banner)

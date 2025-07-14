@@ -45,7 +45,7 @@ const ManageCategories = () => {
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">🏷️ จัดการหมวดหมู่</h1>
+      <h1 className="mb-4 text-2xl font-bold">🏷️ Manage Category</h1>
 
       <form onSubmit={handleSubmit} className="max-w-md space-y-2">
         <input

@@ -182,7 +182,7 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     if (!token || !userId) {
-      alert("กรุณาเข้าสู่ระบบก่อนสั่งซื้อ");
+      alert("Please login before checkout");
       return;
     }
 
@@ -198,20 +198,20 @@ const Cart = () => {
         total,
       });
 
-      alert("🛍️ สั่งซื้อเรียบร้อยแล้ว!");
+      alert("🛍️ Purchase succesfully!");
       clearCart();
     } catch (err) {
       console.error(err);
-      alert("❌ เกิดข้อผิดพลาดในการสั่งซื้อ");
+      alert("❌ เกิดข้อผิดพลาดในการสั่ง");
     }
   };
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">🛒 ตะกร้าสินค้า</h1>
+      <h1 className="mb-4 text-2xl font-bold">🛒 Cart</h1>
 
       {cart.length === 0 ? (
-        <p>ไม่มีสินค้าในตะกร้า</p>
+        <p>Nothing in cart</p>
       ) : (
         <>
           <ul className="space-y-4">
@@ -222,21 +222,21 @@ const Cart = () => {
               >
                 <div>
                   <h2 className="font-semibold">{item.name}</h2>
-                  <p className="text-sm text-gray-600">จำนวน: {item.qty}</p>
-                  <p className="text-sm text-gray-600">ราคา: {item.price} ฿</p>
+                  <p className="text-sm text-gray-600">Quantity: {item.qty}</p>
+                  <p className="text-sm text-gray-600">Price: {item.price} ฿</p>
                 </div>
                 <button
                   onClick={() => removeFromCart(item._id)}
                   className="text-red-500 hover:underline"
                 >
-                  ลบ
+                  delete
                 </button>
               </li>
             ))}
           </ul>
 
           <div className="mt-4 font-bold text-right">
-            รวมทั้งหมด: {total.toLocaleString()} ฿
+            Total: {total.toLocaleString()} ฿
           </div>
 
           <div className="mt-6 space-x-3 text-right">
@@ -244,7 +244,7 @@ const Cart = () => {
               onClick={clearCart}
               className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700"
             >
-              🗑️ ล้างตะกร้า
+              🗑️ Clear cart
             </button>
 
             {token && userId ? (
@@ -252,11 +252,11 @@ const Cart = () => {
                 onClick={handleCheckout}
                 className="px-4 py-2 text-white bg-green-600 rounded hover:bg-green-700"
               >
-                ✅ ยืนยันคำสั่งซื้อ
+                ✅ Confirm
               </button>
             ) : (
               <p className="inline-block ml-2 text-red-600">
-                กรุณาเข้าสู่ระบบก่อนทำการสั่งซื้อ
+                Please login before checkout
               </p>
             )}
           </div>

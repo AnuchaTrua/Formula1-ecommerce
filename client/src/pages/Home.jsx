@@ -1,31 +1,3 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import ProductCard from "../components/ProductCard";
-
-// const Home = () => {
-//   const [products, setProducts] = useState([]);
-
-//   useEffect(() => {
-//     axios.get("http://localhost:5000/api/products")
-//       .then((res) => setProducts(res.data))
-//       .catch((err) => console.error(err));
-//   }, []);
-
-//   return (
-//     <div className="p-4">
-//       <h1 className="mb-4 text-2xl font-bold">Products</h1>
-//       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-//         {products.map((product) => (
-//           <ProductCard key={product._id} product={product} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
@@ -36,9 +8,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const bannerImages = [
-  "https://cdn-3.motorsport.com/images/mgl/2M0yqAmY/s8/f1-bahrain-gp-2023-lando-norri.webp",
-  "https://cdn-3.motorsport.com/images/mgl/2Mmj48Q0/s8/f1-british-gp-2023-max-verstapp.webp",
-  "https://cdn-7.motorsport.com/images/mgl/Y9gAAG10/s8/f1-austrian-gp-2023-charles-lec.webp"
+  "public/images/SCUDERIA FERRARI MERCH.png",
+  "public/images/MCLAREN MERCH.png",
+  "public/images/REDBULL MERCH.png"
 ];
 
 const Home = () => {
@@ -80,7 +52,7 @@ const Home = () => {
 
       {/* 🛍️ สินค้าแนะนำ */}
       <div className="p-4">
-        <h2 className="mb-4 text-2xl font-bold text-center">สินค้าแนะนำ</h2>
+        <h2 className="mb-4 text-2xl font-bold text-center">RECOMMEND MERCH</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
           {featuredProducts.map((product) => (
             <ProductCard key={product._id} product={product} />
@@ -91,9 +63,9 @@ const Home = () => {
         <div className="mt-8 text-center">
           <Link
             to="/products"
-            className="inline-block px-6 py-2 text-white transition bg-blue-600 rounded hover:bg-blue-700"
+            className="inline-block px-6 py-2 text-white transition bg-black rounded hover:bg-blue-700"
           >
-            ดูสินค้าทั้งหมด
+            View all products
           </Link>
         </div>
       </div>

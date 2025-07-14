@@ -90,19 +90,19 @@ function App() {
 
   return (
     <Router>
-      <header className="relative flex items-center justify-between p-4 text-white bg-blue-600">
+      <header className="relative flex items-center justify-between p-4 text-white bg-black">
         <div className="flex items-center space-x-4">
           <Link to="/" className="text-xl font-bold">
-            MiniStore
+            F1 STORE
           </Link>
 
           {/* Dropdown ทีม */}
           <div className="relative">
             <button
-              className="px-3 py-1 bg-blue-700 rounded hover:underline"
+              className="px-3 py-1 text-black bg-white rounded hover:underline"
               onClick={() => setDropdownOpen((prev) => !prev)}
             >
-              ทีม F1 ▼
+              F1 TEAM ▼
             </button>
 
             {dropdownOpen && (
@@ -146,7 +146,7 @@ function App() {
         <div className="flex items-center space-x-3">
           <Link
             to="/cart"
-            className="px-3 py-1 text-blue-600 bg-white rounded hover:bg-gray-100"
+            className="px-3 py-1 text-black bg-white rounded hover:bg-gray-100"
           >
             Cart ({cart.length})
           </Link>

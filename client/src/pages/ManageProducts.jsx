@@ -22,7 +22,7 @@ const ManageProducts = () => {
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">📦 จัดการสินค้า</h1>
+      <h1 className="mb-4 text-2xl font-bold">📦 Manage Product</h1>
       <ul className="space-y-4">
         {products.map((p) => (
           <li key={p._id} className="flex items-center justify-between p-4 border rounded">

@@ -64,7 +64,7 @@ const AddProduct = () => {
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">➕ เพิ่มสินค้า</h1>
+      <h1 className="mb-4 text-2xl font-bold">➕ Add product</h1>
       <form onSubmit={handleSubmit} className="max-w-md space-y-4">
         <input
           name="name"
@@ -98,7 +98,7 @@ const AddProduct = () => {
 
         {/* ✅ เลือกหมวดหมู่ */}
         <div>
-          <label className="font-semibold">เลือกหมวดหมู่</label>
+          <label className="font-semibold">Choose category</label>
           <div className="grid grid-cols-2 gap-2 mt-2">
             {["team", "type", "driver"].map((catType) => (
               <div key={catType}>

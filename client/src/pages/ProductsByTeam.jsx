@@ -35,7 +35,7 @@ const ProductsByTeam = () => {
 
   return (
     <div>
-      <h1 className="mb-4 text-2xl font-bold">สินค้าในทีม: {teamName}</h1>
+      <h1 className="mb-4 text-2xl font-bold">Product of this team</h1>
       {products.length === 0 && <p>ไม่มีสินค้าในทีมนี้</p>}
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

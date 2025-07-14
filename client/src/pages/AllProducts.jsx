@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useSearchParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+
+
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -9,6 +12,7 @@ const AllProducts = () => {
   const [filters, setFilters] = useState({ team: [], type: [], driver: [] });
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,9 +96,12 @@ const AllProducts = () => {
             <img src={p.image} alt={p.name} className="object-cover w-full h-48" />
             <h3 className="mt-2 text-lg font-bold">{p.name}</h3>
             <p className="text-gray-700">{p.price} บาท</p>
-            <Link to={`/product/${p._id}`} className="text-blue-500 underline">
-              ดูเพิ่มเติม
-            </Link>
+            <button
+              onClick={() => addToCart(p)}
+              className="px-4 py-1 mt-2 text-white bg-black rounded hover:bg-blue-600"
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>
